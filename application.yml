@@ -1,7 +1,23 @@
 
 spring:
   main:
-    banner-mode: "off"
+    banner-mode: off
+    timezone: Asia/Ho_Chi_Minh
+
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+    serialization:
+      write-dates-as-timestamps: false
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Ho_Chi_Minh
+
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS,Asia/Ho_Chi_Minh
 
 eureka:
   client:
