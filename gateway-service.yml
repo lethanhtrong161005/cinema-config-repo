@@ -1,0 +1,5 @@
+
+spring:
+  cloud:
+    gateway:
+      routes: []   # tạm để trống, chưa routing gì cả
