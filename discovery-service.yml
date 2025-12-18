@@ -3,9 +3,12 @@ spring:
   cloud:
     discovery:
       enabled: false
+    loadbalancer:
+      enabled: false
 
 eureka:
   client:
+    enabled: false
     register-with-eureka: false
     fetch-registry: false
 
