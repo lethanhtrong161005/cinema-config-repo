@@ -15,6 +15,15 @@ spring:
         jdbc:
           time_zone: Asia/Ho_Chi_Minh
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: auth-service
+        url: /auth/v3/api-docs
+      - name: user-service
+        url: /user/v3/api-docs
+
 logging:
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss.SSS,Asia/Ho_Chi_Minh

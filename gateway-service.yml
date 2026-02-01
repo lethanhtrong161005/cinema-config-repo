@@ -22,6 +22,16 @@ spring:
           filters:
             - StripPrefix=0
 
+        - id: auth-openapi
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/v3/api-docs
+
+        - id: user-openapi
+          uri: lb://user-service
+          predicates:
+              - Path=/user/v3/api-docs
+
 eureka:
   client:
     service-url:
