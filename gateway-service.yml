@@ -17,7 +17,7 @@ spring:
           predicates:
             - Path=/auth/v3/api-docs/**
           filters:
-            - StripPrefix=1
+            - RewritePath=/auth/(?<segment>.*), /${segment}
 
 eureka:
   client:
