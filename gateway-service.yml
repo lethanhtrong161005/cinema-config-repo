@@ -8,6 +8,10 @@ spring:
       default-filters:
         - RemoveRequestHeader=Cookie
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
       routes:
         # Auth service (public endpoints)
