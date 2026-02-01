@@ -16,8 +16,6 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/v3/api-docs/**
-          filters:
-            - RewritePath=/auth/(?<segment>.*), /${segment}
 
 eureka:
   client:
