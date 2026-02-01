@@ -18,6 +18,20 @@ spring:
       hibernate:
         format_sql: true
 
+  security:
+    jwt:
+      issuer: cinema-auth
+      access-token-expiration: 900
+      refresh-token-expiration: 2592000
+      algorithm: RS256
+
+    cookie:
+      access-token-name: ACCESS_TOKEN
+      refresh-token-name: REFRESH_TOKEN
+      secure: false
+      http-only: true
+      same-site: Lax
+
 eureka:
   client:
     service-url:
