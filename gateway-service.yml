@@ -1,43 +1,28 @@
-
 spring:
-  main:
-    web-application-type: reactive
-
   cloud:
     gateway:
-      default-filters:
-        - RemoveRequestHeader=Cookie
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
 
       routes:
-        # Auth service (public endpoints)
         - id: auth-service
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
-          filters:
-            - StripPrefix=0
 
         - id: auth-openapi
           uri: lb://auth-service
           predicates:
-            - Path=/auth/v3/api-docs
-
-        - id: user-openapi
-          uri: lb://user-service
-          predicates:
-              - Path=/user/v3/api-docs
+            - Path=/auth/v3/api-docs/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
-    register-with-eureka: true
-    fetch-registry: true
 
 management:
   endpoints:
